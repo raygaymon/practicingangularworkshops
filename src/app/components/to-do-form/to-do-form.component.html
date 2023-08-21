@@ -1,0 +1,47 @@
+<div>
+    <h1>ToDo</h1>
+    <form [formGroup]="toDoForm">
+        <table>
+            <tr>
+                <td>Description:</td>
+                <td>
+                    <input type="text" formControlName="desc" name="desc" id="desc">
+                </td>
+            </tr>
+            <tr>
+                <td>Priority: </td>
+                <td>
+                    <input type="radio" formControlName="priority" name="priority" id="priority" value="High">High
+                    <input type="radio" formControlName="priority" name="priority" id="priority" value="Medium">Medium
+                    <input type="radio" formControlName="priority" name="priority" id="priority" value="Low">Lo
+                </td>
+            </tr>
+            <tr>
+                <td>Due:</td>
+                <td>
+                    <input type="date" formControlName="due">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: right;">
+                    <button type="button" (click)="submit()" [disabled]="toDoForm.invalid">Add</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</div>
+<div>
+    <h1>Task</h1>
+    <table *ngFor="let task of taskList">
+        <tr>
+            <td colspan="2"><h2>{{task.desc}}</h2></td>
+        </tr>
+        <tr>
+            <td>{{task.priority}}</td>
+            <td></td>
+            <td style="text-align: right;">{{task.due}}</td>
+        </tr>
+    </table>
+</div>
